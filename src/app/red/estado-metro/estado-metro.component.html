@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center m-3">
+  <h1>{{ time ? time : "-" }}</h1>
+</div>
+<nz-table
+  #nzTable
+  [nzData]="lineas"
+  nzTableLayout="fixed"
+  nzFrontPagination="false"
+>
+  <thead>
+    <tr>
+      <th scope="id">ID</th>
+      <th scope="linea">Línea</th>
+      <th scope="estado">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let line of lineas">
+      <tr>
+        <td
+          [nzExpand]="expandSet.has(line.id)"
+          (nzExpandChange)="onExpandChange(line.id, $event)"
+        >
+          {{ line.id }}
+        </td>
+        <td>{{ line.name }}</td>
+        <td>
+          <nz-tag>
+            <nz-badge
+              nzStatus="{{ line.issues === false ? 'success' : 'error' }}"
+              nzText="{{ line.issues === false ? 'Abierta' : 'Cerrada' }}"
+            >
+            </nz-badge>
+          </nz-tag>
+        </td>
+      </tr>
+      <tr
+        [nzExpand]="expandSet.has(line.id)"
+        *ngFor="let station of line.stations"
+      >
+        <nz-list nzBordered>
+          <nz-list-item>
+            <span nz-typography
+              ><strong>{{ station.name }}</strong></span
+            >
+            <nz-tag *ngFor="let line of station.lines">
+              {{ line }}
+            </nz-tag>
+            <nz-tag>
+              <nz-badge
+                nzStatus="{{
+                  station.is_closed_by_schedule === false ? 'success' : 'error'
+                }}"
+                nzText="{{ station.description }}"
+              >
+              </nz-badge>
+            </nz-tag>
+          </nz-list-item>
+        </nz-list>
+      </tr>
+    </ng-container>
+  </tbody>
+</nz-table>
+
+<!-- <nz-timeline *ngFor="let linea of lineas">
+  <nz-timeline-item [nzColor]="linea.issues === false ? 'green' : 'red'">
+    <p>{{ linea.id }}</p>
+    <nz-timeline *ngFor="let station of linea.stations">
+      <nz-timeline-item [nzColor]="station.is_closed_by_schedule === false ? 'green' : 'red'">
+        <p>{{ station.name }}</p>
+      </nz-timeline-item>
+    </nz-timeline>
+  </nz-timeline-item>
+</nz-timeline> -->
