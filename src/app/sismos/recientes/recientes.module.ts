@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { RecientesComponent } from './recientes.component';
 
-
 @NgModule({
   declarations: [
     RecientesComponent

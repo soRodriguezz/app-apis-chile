@@ -1,16 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { SismosComponent } from './sismos.component';
 import { SismosRoutingModule } from './sismos-routing.module';
+import { RecientesModule } from './recientes/recientes.module';
 
 @NgModule({
-  declarations: [
-    SismosComponent
-  ],
   imports: [
     CommonModule,
     SismosRoutingModule,
+    RecientesModule,
   ]
 })
 export class SismosModule { }

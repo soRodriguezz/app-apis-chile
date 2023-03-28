@@ -1,15 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { EstadoMetroComponent } from './estado-metro.component';
 import { NgZorroAntdModule } from 'src/app/ng-zorro-antd.module';
+import { RedRoutingModule } from './red.routing.module';
+import { EstadoMetroModule } from './estado-metro/estado-metro.module';
 
 @NgModule({
-  declarations: [
-    EstadoMetroComponent
-  ],
   imports: [
     CommonModule,
-    NgZorroAntdModule,
+    RedRoutingModule,
+    EstadoMetroModule,
   ]
 })
-export class EstadoMetroModule { }
+export class RedModule { }

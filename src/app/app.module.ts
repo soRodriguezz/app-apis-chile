@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NZ_I18N, es_ES } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import es from '@angular/common/locales/es';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EstadoMetroModule } from './red/estado-metro/estado-metro.module';
+import { NZ_I18N, es_ES } from 'ng-zorro-antd/i18n';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { NgZorroAntdModule } from './ng-zorro-antd.module';
+import { RedModule } from './red/red.module';
 import { SismosModule } from './sismos/sismos.module';
 
 registerLocaleData(es);
@@ -25,7 +25,7 @@ registerLocaleData(es);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    EstadoMetroModule,
+    RedModule,
     NgZorroAntdModule,
     SismosModule,
   ],

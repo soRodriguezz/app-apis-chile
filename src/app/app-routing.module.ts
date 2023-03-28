@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'estado-metro',
-    loadChildren: () => import('./red/estado-metro/estado-metro.module').then(m => m.EstadoMetroModule),
+    path: 'red',
+    loadChildren: () => import('./red/red.module').then(m => m.RedModule),
   },
   {
     path: 'default',
