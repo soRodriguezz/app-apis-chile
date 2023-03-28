@@ -41,6 +41,21 @@ export class EstadoMetroComponent implements OnInit {
     });
   }
 
+  getStatusClass(status: number): string {
+    switch(status) {
+      case 0:
+        return 'success';
+      case 1:
+        return 'error';
+      case 2:
+        return 'error';
+      case 3:
+        return 'warning';
+      default:
+        return 'processing';
+    }
+  }
+
   private timerData(time: number) {
     timer(0, time).subscribe(() => {
       this.obtenerEstadosMetro();

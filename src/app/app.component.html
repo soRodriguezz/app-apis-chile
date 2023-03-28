@@ -1,18 +1,26 @@
 <nz-layout>
   <nz-sider nzCollapsible nzWidth="200px">
-    <div class="logo"></div>
+    <div class="logo" routerLink="/"></div>
     <ul nz-menu [nzTheme]="true ? 'dark' : 'light'" nzMode="inline">
       <li nz-submenu nzTitle="Red" nzIcon="alert">
         <ul>
-          <li nz-menu-item routerLink="/metro-network">Estado Metro</li>
+          <li nz-menu-item routerLink="/estado-metro" [routerLinkActive]="'active'">Estado Metro</li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="Sismos" nzIcon="bar-chart">
+        <ul>
+          <li nz-menu-item routerLink="/sismos/recientes" [routerLinkActive]="'active'">Recientes</li>
         </ul>
       </li>
     </ul>
   </nz-sider>
   <nz-layout>
-    <nz-header></nz-header>
+    <nz-header>
+      <ul nz-menu [nzTheme]="true ? 'dark' : 'light'" nzMode="horizontal" class="header-menu">
+      </ul>
+    </nz-header>
     <nz-content>
-      <div class="inner-content">
+      <div class="inner-content d-flex justify-content-center">
         <router-outlet></router-outlet>
       </div>
     </nz-content>

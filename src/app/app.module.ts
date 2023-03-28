@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EstadoMetroModule } from './red/estado-metro/estado-metro.module';
 import { NgZorroAntdModule } from './ng-zorro-antd.module';
+import { SismosModule } from './sismos/sismos.module';
 
 registerLocaleData(es);
 
@@ -26,6 +27,7 @@ registerLocaleData(es);
     BrowserAnimationsModule,
     EstadoMetroModule,
     NgZorroAntdModule,
+    SismosModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: es_ES }

@@ -28,7 +28,7 @@
           <nz-tag>
             <nz-badge
               nzStatus="{{ line.issues === false ? 'success' : 'error' }}"
-              nzText="{{ line.issues === false ? 'Abierta' : 'Cerrada' }}"
+              nzText="{{ line.issues === false ? 'Sin problemas' : 'Con problemas' }}"
             >
             </nz-badge>
           </nz-tag>
@@ -48,9 +48,7 @@
             </nz-tag>
             <nz-tag>
               <nz-badge
-                nzStatus="{{
-                  station.is_closed_by_schedule === false ? 'success' : 'error'
-                }}"
+                [nzStatus]="getStatusClass(station.status)"
                 nzText="{{ station.description }}"
               >
               </nz-badge>
